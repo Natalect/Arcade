@@ -5,6 +5,7 @@ module.exports = {
       "platform-lookaside.fbsbx.com",
       "firebasestorage.googleapis.com",
       "lh3.googleusercontent.com",
+      "raw.githubusercontent.com",
     ],
   },
 };
