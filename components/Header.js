@@ -1,51 +1,37 @@
 import Image from "next/image";
 import HeaderIcon from "./HeaderIcon";
-import {
-  BellIcon,
-  ChatIcon,
-  ChevronDownIcon,
-  HomeIcon,
-  UserGroupIcon,
-  ViewGridIcon,
-} from "@heroicons/react/solid";
-import {
-  FlagIcon,
-  PlayIcon,
-  SearchIcon,
-  ShoppingCartIcon,
-} from "@heroicons/react/outline";
+import { HomeIcon, PlayIcon } from "@heroicons/react/outline";
 import { signOut, useSession } from "next-auth/client";
+import { Menu } from "@headlessui/react";
+import { forwardRef } from "react";
+import Link from "next/link";
 
 function Header() {
   const [session] = useSession();
 
+  const NavLink = forwardRef((props, ref) => {
+    let { href, children, ...rest } = props;
+    return (
+      <Link href={href}>
+        <a ref={ref} {...rest}>
+          {children}
+        </a>
+      </Link>
+    );
+  });
+
   return (
     <header className="sticky top-0 z-50 bg-white flex items-center p-2 lg:px-5 shadow-md">
-      {/* Left */}
-      <div className="flex items-center">
-        <Image
-          src="https://links.papareact.com/5me"
-          width="40"
-          height="40"
-          layout="fixed"
-        />
-        <div className="hidden md:inline-flex ml-2 items-center rounded-full bg-gray-100 p-2">
-          <SearchIcon className="h-6 text-gray-600" />
-          <input
-            className="hidden lg:inline-flex ml-2 bg-transparent outline-none placeholder-gray-500 flex-shrink"
-            placeholder="Search Facebook"
-          />
-        </div>
+      {/* Beginning */}
+      <div className="flex items-center sm:space-x-2 justify-end">
+        <h1>ARCADE</h1>
       </div>
 
       {/* Center */}
       <div className="flex justify-center flex-grow">
         <div className="flex space-x-6 md:space-x-2">
-          <HeaderIcon active Icon={HomeIcon} />
-          <HeaderIcon Icon={FlagIcon} />
+          <HeaderIcon Icon={HomeIcon} />
           <HeaderIcon Icon={PlayIcon} />
-          <HeaderIcon Icon={ShoppingCartIcon} />
-          <HeaderIcon Icon={UserGroupIcon} />
         </div>
       </div>
 
@@ -59,13 +45,25 @@ function Header() {
           height="40"
           layout="fixed"
         />
-        <p className="hidden lg:inline-flex text-sm whitespace-nowrap font-semibold pr-3">
-          {session.user.name}
-        </p>
-        <ViewGridIcon className="icon" />
-        <ChatIcon className="icon" />
-        <BellIcon className="icon" />
-        <ChevronDownIcon className="icon" />
+        <Menu>
+          <Menu.Button>
+            <p className="hidden lg:inline-flex text-sm whitespace-nowrap font-semibold pr-3">
+              {session.user.name}
+            </p>
+          </Menu.Button>
+          <Menu.Items>
+            {/* Use the `active` render prop to conditionally style the active item. */}
+            <p className="hidden lg:inline-flex whitespace-nowrap pr-3 text-xs text-gray-400">
+              {session.user.email}
+            </p>
+            <p
+              onClick={() => signOut()}
+              className="rounded-full cursor-pointer hidden lg:inline-flex text-xs text-gray-400 whitespace-nowrap pr-3"
+            >
+              Logout
+            </p>
+          </Menu.Items>
+        </Menu>
       </div>
     </header>
   );
