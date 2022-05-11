@@ -3,8 +3,6 @@ import Head from "next/head";
 import Feed from "../components/Feed";
 import Header from "../components/Header";
 import Login from "../components/Login";
-import Sidebar from "../components/Sidebar";
-import Widgets from "../components/Widgets";
 import { db } from "../firebase";
 
 export default function Home({ session, posts }) {
@@ -13,7 +11,7 @@ export default function Home({ session, posts }) {
   return (
     <div className="h-screen bg-gray-100 overflow-hidden">
       <Head>
-        <title>Facebook</title>
+        <title>ARCADE</title>
       </Head>
 
       <Header />

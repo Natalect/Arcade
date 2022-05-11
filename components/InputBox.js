@@ -1,5 +1,4 @@
-import { EmojiHappyIcon } from "@heroicons/react/outline";
-import { CameraIcon, VideoCameraIcon } from "@heroicons/react/solid";
+import { CameraIcon } from "@heroicons/react/solid";
 import { useSession } from "next-auth/client";
 import { useRef, useState } from "react";
 import { db, storage } from "../firebase";
