@@ -31,7 +31,9 @@ function Header() {
       <div className="flex justify-center flex-grow">
         <div className="flex space-x-6 md:space-x-2">
           <HeaderIcon Icon={HomeIcon} />
-          <HeaderIcon Icon={PlayIcon} />
+          <a href="https://natalect.github.io/Arcade-Games/index.html">
+            <HeaderIcon Icon={PlayIcon} />
+          </a>
         </div>
       </div>
 
