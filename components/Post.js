@@ -1,10 +1,10 @@
-import { ChatAltIcon, ShareIcon, ThumbUpIcon } from "@heroicons/react/outline";
+import { CloudDownloadIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 
 function Post({ name, message, email, postImage, image, timestamp }) {
   return (
     <div className="flex flex-col">
-      <div className="p-5 bg-white mt-5 rounded-2xl shadow-sm">
+      <div className="p-5 bg-white mt-5 rounded-t-2xl shadow-sm">
         <div className="flex items-center space-x-2">
           <img className="rounded-full" src={image} width={40} height={40} />
           <div>
@@ -26,6 +26,16 @@ function Post({ name, message, email, postImage, image, timestamp }) {
           <Image src={postImage} objectFit="cover" layout="fill" />
         </div>
       )}
+
+      {/* Post Footer */}
+      <div className="flex justify-between items-center rounded-b-2xl bg-white shadow-md text-gray-400 border-t">
+        <div className="inputIcon p-3 rounded-none">
+          <CloudDownloadIcon className="h-4" />
+          <a href={postImage} className="text-xs sm:text-base">
+            Download Image
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
