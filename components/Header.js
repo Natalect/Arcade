@@ -24,13 +24,14 @@ function Header() {
     <header className="sticky top-0 z-50 bg-white flex items-center p-2 lg:px-5 shadow-md">
       {/* Beginning */}
       <div className="flex items-center sm:space-x-2 justify-end">
-        <h1>ARCADE</h1>
+        <a href="/"><h1>ARCADE</h1></a>
       </div>
 
       {/* Center */}
       <div className="flex justify-center flex-grow">
         <div className="flex space-x-6 md:space-x-2">
-          <HeaderIcon Icon={HomeIcon} />
+          <a href="/">
+            <HeaderIcon Icon={HomeIcon} /> />
           <a href="https://natalect.github.io/Arcade-Games/index.html">
             <HeaderIcon Icon={PlayIcon} />
           </a>
