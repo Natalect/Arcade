@@ -32,7 +32,7 @@ function Header() {
         <div className="flex space-x-6 md:space-x-2">
           <a href="/">
             <HeaderIcon Icon={HomeIcon} /> />
-          <a href="https://natalect.github.io/Arcade-Games/index.html">
+          <a href="https://natalect.github.io/Arcade-Games/">
             <HeaderIcon Icon={PlayIcon} />
           </a>
         </div>
